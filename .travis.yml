@@ -7,3 +7,11 @@ before_install:
 
 script:
   - docker run -e CI=true spine/docker-react npm run test -- --coverage
+
+deploy:
+  provider: netlify
+  site: "0d610a51-69f7-464b-b695-3a0896cc6059" # Replace with your Netlify site ID
+  on:
+    branch: master
+  auth: 
+    secure: "$docker-react" # Replace with your encrypted Netlify auth token
