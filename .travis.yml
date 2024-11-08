@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t spine/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run spine/docker-react npm run test -- --coverage
